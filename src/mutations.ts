@@ -4,8 +4,6 @@ import * as w3 from "@web3-storage/w3up-client";
 const w3sUpClient = await w3.create();
 type Email = `${string}@${string}`;
 
-
-
 /**
  * @param {File} file
  */
@@ -24,7 +22,7 @@ builder.mutationField("logFile", (t) =>
         required: true,
       }),
     },
-    type: 'String',
+    type: "String",
     resolve: async (query, { carFile }, ctx) => {
       console.log(carFile);
       console.warn("base64(car)", await base64File(carFile));
@@ -42,14 +40,12 @@ builder.mutationField("uploadCar", (t) =>
       }),
       email: t.arg.string(),
     },
-    type: 'String',
+    type: "String",
     resolve: async (query, { carFile, email }, ctx) => {
       const space = await w3sUpClient.createSpace("1234567");
       await w3sUpClient.setCurrentSpace(space.did());
       await w3sUpClient.registerSpace(email as Email);
-      return (await w3sUpClient.uploadCAR(carFile)).then((cid: any) =>
-        cid.toString()
-      );
+      return (await w3sUpClient.uploadCAR(carFile)).toString()
     },
   })
 );
