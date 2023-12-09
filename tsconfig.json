@@ -12,7 +12,6 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "resolveJsonModule": true,
-    "alwaysStrict": true,
     "noImplicitReturns": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
