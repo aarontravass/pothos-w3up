@@ -45,7 +45,7 @@ builder.mutationField("uploadCar", (t) =>
       const space = await w3sUpClient.createSpace("1234567");
       await w3sUpClient.setCurrentSpace(space.did());
       await w3sUpClient.registerSpace(email as Email);
-      return (await w3sUpClient.uploadCAR(carFile)).toString()
+      return (await w3sUpClient.uploadCAR(carFile)).toString();
     },
   })
 );
